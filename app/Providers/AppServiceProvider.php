@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatty\Providers;
+namespace Chatmimik\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

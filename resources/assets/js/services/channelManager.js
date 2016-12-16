@@ -1,6 +1,7 @@
 /* global angular, Pusher, chattyConfig */
 
-angular.module('chatty')
+angular
+    .module('chatmimik')
     .factory('channelManager', ['$pusher', '$sessionStorage', channelManager]);
 
 function channelManager($pusher, $sessionStorage) {

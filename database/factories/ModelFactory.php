@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Chatty\User::class, function (Faker\Generator $faker) {
+$factory->define(Chatmimik\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
@@ -20,7 +20,7 @@ $factory->define(Chatty\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Chatty\Message::class, function (Faker\Generator $faker) {
+$factory->define(Chatmimik\Message::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->userName,
         'message' => $faker->sentence,

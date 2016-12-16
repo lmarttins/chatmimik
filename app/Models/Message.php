@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatty;
+namespace Chatmimik\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

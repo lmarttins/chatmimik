@@ -1,9 +1,9 @@
 <?php
 
-namespace Chatty\Events;
+namespace Chatmimik\Events;
 
-use Chatty\Message;
-use Chatty\Events\Event;
+use Chatmimik\Models\Message;
+use Chatmimik\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 

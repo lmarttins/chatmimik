@@ -1,16 +1,16 @@
 <!doctype html>
-<html ng-app="chatty">
+<html ng-app="chatmimik">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chatty | A simple chat app build with Laravel, Pusher and AngularJS</title>
+    <title>Chatmimik | Conversation by mimica, emotions.</title>
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     <div class="container" ng-controller="Chat as chat">
         <div class="ui stackable padded grid">
             <aside class="three wide column info-column">
-                <h1>Chatty</h1>
+                <h1>Chatmimik</h1>
                 <p>
                     Simple chat app built with Laravel, Pusher and AngularJS.
                 </p>

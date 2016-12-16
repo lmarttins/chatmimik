@@ -1,8 +1,8 @@
 <?php
 
-namespace Chatty\Http\Controllers\Auth;
+namespace Chatmimik\Http\Controllers\Auth;
 
-use Chatty\Http\Controllers\Controller;
+use Chatmimik\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

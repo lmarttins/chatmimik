@@ -13,7 +13,7 @@ class MessageTest extends TestCase
     /**
      * Messages eloquent model mock
      *
-     * @var Chatty\Message
+     * @var Chatmimik\Message
      */
     protected $messages;
 
@@ -31,10 +31,10 @@ class MessageTest extends TestCase
     {
         parent::setUp();
 
-        $this->messages = m::mock(Chatty\Message::class);
+        $this->messages = m::mock(Chatmimik\Message::class);
         $this->request  = m::mock(Illuminate\Http\Request::class);
 
-        $this->app->instance(Chatty\Message::class, $this->messages);
+        $this->app->instance(Chatmimik\Message::class, $this->messages);
         $this->app->instance(Illuminate\Http\Request::class, $this->request);
     }
 
@@ -45,7 +45,7 @@ class MessageTest extends TestCase
      */
     public function testReturnsInitialMessagesInCorrectFormat()
     {
-        $messages = factory(Chatty\Message::class, 20)->make();
+        $messages = factory(Chatmimik\Message::class, 20)->make();
 
         $this->messages->shouldReceive('orderBy')
             ->once()
@@ -90,7 +90,7 @@ class MessageTest extends TestCase
             'username' => 'foo',
             'message'  => 'bar'
         ];
-        $message = factory(Chatty\Message::class)->make($input);
+        $message = factory(Chatmimik\Message::class)->make($input);
 
         $this->request
             ->shouldReceive('input')
@@ -101,7 +101,7 @@ class MessageTest extends TestCase
             ->with($input)
             ->andReturn($message);
 
-        $this->expectsEvents(Chatty\Events\MessagePublished::class);
+        $this->expectsEvents(Chatmimik\Events\MessagePublished::class);
 
         $response = $this->call('POST', 'messages');
 

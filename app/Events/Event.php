@@ -1,8 +1,7 @@
 <?php
 
-namespace Chatty\Events;
+namespace Chatmimik\Events;
 
 abstract class Event
 {
-    //
 }

@@ -25,7 +25,7 @@ elixir(function(mix) {
         'node_modules/moment/moment.js',
         'node_modules/identicon.js/pnglib.js',
         'node_modules/identicon.js/identicon.js',
-        'node_modules/pusher-js/dist/pusher.js',
+        'resources/assets/js/pusher.min.js',
         'node_modules/angularjs-scroll-glue/src/scrollglue.js',
         'node_modules/ng-focus-on/ng-focus-on.js',
         'node_modules/ngstorage/ngStorage.js',

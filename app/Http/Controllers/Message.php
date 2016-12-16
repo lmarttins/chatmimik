@@ -1,12 +1,12 @@
 <?php
 
-namespace Chatty\Http\Controllers;
+namespace Chatmimik\Http\Controllers;
 
-use Chatty\Http\Requests;
+use Chatmimik\Http\Requests;
 use Illuminate\Http\Request;
-use Chatty\Events\MessagePublished;
-use Chatty\Message as MessageModel;
-use Chatty\Http\Controllers\Controller;
+use Chatmimik\Events\MessagePublished;
+use Chatmimik\Models\Message as MessageModel;
+use Chatmimik\Http\Controllers\Controller;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class Message extends Controller

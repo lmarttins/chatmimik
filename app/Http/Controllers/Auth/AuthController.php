@@ -1,10 +1,10 @@
 <?php
 
-namespace Chatty\Http\Controllers\Auth;
+namespace Chatmimik\Http\Controllers\Auth;
 
-use Chatty\User;
+use Chatmimik\User;
 use Validator;
-use Chatty\Http\Controllers\Controller;
+use Chatmimik\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

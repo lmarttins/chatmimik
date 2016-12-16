@@ -140,11 +140,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Chatty\Providers\AppServiceProvider::class,
-        Chatty\Providers\AuthServiceProvider::class,
-        Chatty\Providers\EventServiceProvider::class,
-        Chatty\Providers\RouteServiceProvider::class,
-        Chatty\Providers\PusherServiceProvider::class,
+        Chatmimik\Providers\AppServiceProvider::class,
+        Chatmimik\Providers\AuthServiceProvider::class,
+        Chatmimik\Providers\EventServiceProvider::class,
+        Chatmimik\Providers\RouteServiceProvider::class,
+        Chatmimik\Providers\PusherServiceProvider::class,
 
     ],
 

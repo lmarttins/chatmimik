@@ -1,5 +1,5 @@
 /* global angular */
-angular.module('chatty', [
+angular.module('chatmimik', [
     'pusher-angular',
     'luegg.directives',
     'ngStorage',

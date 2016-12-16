@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatty\Http\Middleware;
+namespace Chatmimik\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

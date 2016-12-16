@@ -1,16 +1,19 @@
 /* global angular */
 
-angular.module('chatty')
-    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', chatController]);
+angular.module('chatmimik')
+    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', 'chatManager', chatController]);
 
-function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus) {
+function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus, chatManager) {
     this.sessionStorage = $sessionStorage;
     this.users = [];
+    this.messages = [];
 
     // Populate chat room with previous messages
-    $http.get('messages').success((messages) => {
-        this.messages = messages;
-    });
+    chatManager.getMessages()
+        .then(function(messages) {
+            this.messages = messages;
+        }, function(messages) {
+        });
 
     // When the username is set bind channel events
     $scope.$watch('chat.username', (newValue) => {
