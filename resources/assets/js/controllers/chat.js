@@ -62,7 +62,7 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     this.bindChannelEvents = () => {
         let channel = channelManager.subscribe('presence-chat');
 
-        channel.bind('Chatty\\Events\\MessagePublished', (response) => {
+        channel.bind('Chatmimik\\Events\\MessagePublished', (response) => {
             // Update message list for everyone except the message author
             if (response.message.username !== this.username) {
                 this.messages.push(response.message);

@@ -12,23 +12,8 @@
             <aside class="three wide column info-column">
                 <h1>Chatmimik</h1>
                 <p>
-                    Simple chat app built with Laravel, Pusher and AngularJS.
+                    Vamos brincar de mimica moçada :P
                 </p>
-                <p>
-                    There's a lot of room for improvement so feel free to submit pull requests.
-                </p>
-                <div class="ui large horizontal divided list">
-                    <div class="item">
-                        <div class="content">
-                            <a href="https://twitter.com/jahvi"><i class="twitter icon"></i> jahvi</a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="content">
-                            <a href="https://github.com/jahvi/chatty"><i class="github icon"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
             </aside>
 
             <div class="ten wide column chat-column">
