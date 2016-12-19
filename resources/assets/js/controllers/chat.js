@@ -1,9 +1,9 @@
 /* global angular */
 
 angular.module('chatmimik')
-    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', chatController]);
+    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', '$log', chatController]);
 
-function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus) {
+function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus, $log) {
     this.sessionStorage = $sessionStorage;
     this.users = [];
     this.messages = [];
@@ -123,7 +123,7 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
         this.users = $filter('filter')(this.users, { id: '!' + user.id });
     };
 
-    this.keyupMessage = () => {
-        console.log('keyup...');
+    this.keydownMessage = () => {
+        
     };
 }

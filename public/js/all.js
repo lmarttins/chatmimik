@@ -39317,9 +39317,9 @@ angular.module('ui.identicon')
 angular.module('chatmimik', ['pusher-angular', 'luegg.directives', 'ngStorage', 'focusOn', 'angularMoment', 'ui.identicon']);
 /* global angular */
 
-angular.module('chatmimik').controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', chatController]);
+angular.module('chatmimik').controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', '$log', chatController]);
 
-function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus) {
+function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus, $log) {
     var _this = this;
 
     this.sessionStorage = $sessionStorage;
@@ -39441,8 +39441,8 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
         _this.users = $filter('filter')(_this.users, { id: '!' + user.id });
     };
 
-    this.keyupMessage = function () {
-        console.log('keyup...');
+    this.keydownMessage = function () {
+        $log.log('keydown press ...');
     };
 }
 /* global angular, Pusher, chattyConfig */

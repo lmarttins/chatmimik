@@ -56,7 +56,7 @@
                             <div class="ui label">
                                 @{{ chat.username }} {{trans('label.says')}}:
                             </div>
-                            <input placeholder="{{trans('placeholder.write_your_message')}}" ng-keyup="keyupMessage()" ng-model="chat.message" required focus-on="messageReady">
+                            <input placeholder="{{trans('placeholder.write_your_message')}}" ng-keydown="chat.keydownMessage()" ng-model="chat.message" required focus-on="messageReady">
                             <button class="blue ui button">{{trans('btn.send')}}</button>
                         </div>
                     </form>
