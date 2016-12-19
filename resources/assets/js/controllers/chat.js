@@ -124,6 +124,6 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     };
 
     this.keydownMessage = () => {
-        
+        $http.post('messages', message);
     };
 }

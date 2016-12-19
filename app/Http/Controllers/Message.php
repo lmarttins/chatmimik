@@ -2,9 +2,11 @@
 
 namespace Chatmimik\Http\Controllers;
 
+use Chatmimik\Domains\Users\Repositories\UserRepositoryInterface;
 use Chatmimik\Http\Requests;
 use Illuminate\Http\Request;
 use Chatmimik\Events\MessagePublished;
+use Chatmimik\Domains\Users\Repositories\UserRepositoryInterface;
 use Chatmimik\Domains\Messages\Message as MessageModel;
 use Illuminate\Contracts\Events\Dispatcher;
 
@@ -12,9 +14,12 @@ class Message extends Controller
 {
     private $messages;
 
-    public function __construct(MessageModel $messages)
+    private $userRepository;
+
+    public function __construct(MessageModel $messages, UserRepositoryInterface $userRepository)
     {
-        $this->messages = $messages;
+        $this->messages       = $messages;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -40,5 +45,10 @@ class Message extends Controller
         $event->fire(new MessagePublished($message));
 
         return response($message, 201);
+    }
+
+    public function userByTyping(Request $request, Dispatcher $event)
+    {
+        $this->userRepository->find($request->get('user_id'));
     }
 }
