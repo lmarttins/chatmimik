@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatmimik\Models;
+namespace Chatmimik\Domains\Users;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

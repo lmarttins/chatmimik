@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "pusher/pusher-php-server": "~2.2",
         "predis/predis": "~1.0",
-        "jenssegers/mongodb": "^3.1"
+        "jenssegers/mongodb": "^3.1",
+        "artesaos/migrator": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

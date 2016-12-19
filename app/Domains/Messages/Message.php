@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatmimik\Models;
+namespace Chatmimik\Domains\Messages;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -11,9 +11,6 @@
         <div class="ui stackable padded grid">
             <aside class="three wide column info-column">
                 <h1>Chatmimik</h1>
-                <p>
-                    Vamos brincar de mimica moçada :P
-                </p>
             </aside>
 
             <div class="ten wide column chat-column">
@@ -57,10 +54,10 @@
                     <form ng-show="chat.username" ng-submit="chat.sendMessage()" ng-cloak>
                         <div class="ui labeled fluid action input">
                             <div class="ui label">
-                                @{{ chat.username }} says:
+                                @{{ chat.username }} {{trans('label.says')}}:
                             </div>
-                            <input placeholder="Write your message..." ng-model="chat.message" required focus-on="messageReady">
-                            <button class="blue ui button">Send</button>
+                            <input placeholder="{{trans('placeholder.write_your_message')}}" ng-model="chat.message" required focus-on="messageReady">
+                            <button class="blue ui button">{{trans('btn.send')}}</button>
                         </div>
                     </form>
                 </div>
