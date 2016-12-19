@@ -146,6 +146,7 @@ return [
          * Domains Service Providers...
          */
         Chatmimik\Domains\Users\Providers\DomainServiceProvider::class,
+        Chatmimik\Domains\Messages\Providers\DomainServiceProvider::class,
 
         /*
          * Application Service Providers...
