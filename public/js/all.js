@@ -39317,9 +39317,9 @@ angular.module('ui.identicon')
 angular.module('chatmimik', ['pusher-angular', 'luegg.directives', 'ngStorage', 'focusOn', 'angularMoment', 'ui.identicon']);
 /* global angular */
 
-angular.module('chatmimik').controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', 'chatManager', chatController]);
+angular.module('chatmimik').controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', chatController]);
 
-function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus, chatManager) {
+function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus) {
     var _this = this;
 
     this.sessionStorage = $sessionStorage;
@@ -39327,9 +39327,9 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     this.messages = [];
 
     // Populate chat room with previous messages
-    chatManager.getMessages().then(function (messages) {
-        this.messages = messages;
-    }, function (messages) {});
+    $http.get('messages').then(function (messages) {
+        _this.messages = messages.data;
+    });
 
     // When the username is set bind channel events
     $scope.$watch('chat.username', function (newValue) {
@@ -39348,6 +39348,8 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             username: _this.username,
             message: _this.message
         };
+
+        console.log(_this.messages);
 
         // Update message list for author
         _this.messages.push(message);
@@ -39438,6 +39440,10 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     this.removeUser = function (user) {
         _this.users = $filter('filter')(_this.users, { id: '!' + user.id });
     };
+
+    this.keyupMessage = function () {
+        console.log('keyup...');
+    };
 }
 /* global angular, Pusher, chattyConfig */
 
@@ -39477,11 +39483,11 @@ function chatManager($http, $q) {
     return {
         getMessages: function getMessages() {
             return $q(function (resolve, reject) {
-                /*$http.get('messages').success(function(data) {
+                $http.get('messages').success(function (data) {
                     resolve(data);
-                }).error(function() {
+                }).error(function () {
                     reject('Query failed. Try again.');
-                });*/
+                });
             });
         }
     };

@@ -7,12 +7,12 @@ chatManager.$inject = ['$http', '$q'];
 function chatManager($http, $q) {
     return {
         getMessages() {
-            return $q(function(resolve, reject) {
-                /*$http.get('messages').success(function(data) {
+            return $q((resolve, reject) => {
+                $http.get('messages').success((data) => {
                     resolve(data);
-                }).error(function() {
+                }).error(() => {
                     reject('Query failed. Try again.');
-                });*/
+                });
             });
         }
     }

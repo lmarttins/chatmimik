@@ -1,19 +1,17 @@
 /* global angular */
 
 angular.module('chatmimik')
-    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', 'chatManager', chatController]);
+    .controller('Chat', ['$scope', '$http', '$sessionStorage', '$filter', 'channelManager', 'focus', chatController]);
 
-function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus, chatManager) {
+function chatController($scope, $http, $sessionStorage, $filter, channelManager, focus) {
     this.sessionStorage = $sessionStorage;
     this.users = [];
     this.messages = [];
 
     // Populate chat room with previous messages
-    chatManager.getMessages()
-        .then(function(messages) {
-            this.messages = messages;
-        }, function(messages) {
-        });
+    $http.get('messages').then((messages) => {
+        this.messages = messages.data;
+    });
 
     // When the username is set bind channel events
     $scope.$watch('chat.username', (newValue) => {
@@ -32,6 +30,8 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             username: this.username,
             message: this.message
         };
+
+        console.log(this.messages);
 
         // Update message list for author
         this.messages.push(message);
@@ -121,5 +121,9 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
      */
     this.removeUser = (user) => {
         this.users = $filter('filter')(this.users, { id: '!' + user.id });
+    };
+
+    this.keyupMessage = () => {
+        console.log('keyup...');
     };
 }

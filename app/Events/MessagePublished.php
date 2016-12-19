@@ -2,8 +2,7 @@
 
 namespace Chatmimik\Events;
 
-use Chatmimik\Models\Message;
-use Chatmimik\Events\Event;
+use Chatmimik\Domains\Messages\Message as MessageModel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
@@ -18,7 +17,7 @@ class MessagePublished extends Event implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Message $message)
+    public function __construct(MessageModel $message)
     {
         $this->message = $message;
     }

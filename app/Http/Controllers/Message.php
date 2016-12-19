@@ -5,8 +5,7 @@ namespace Chatmimik\Http\Controllers;
 use Chatmimik\Http\Requests;
 use Illuminate\Http\Request;
 use Chatmimik\Events\MessagePublished;
-use Chatmimik\Models\Message as MessageModel;
-use Chatmimik\Http\Controllers\Controller;
+use Chatmimik\Domains\Messages\Message as MessageModel;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class Message extends Controller
