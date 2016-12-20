@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Chatmimik\Http\Kernel::class
+    Chatmimik\App\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Chatmimik\Console\Kernel::class
+    Chatmimik\App\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Chatmimik\Exceptions\Handler::class
+    Chatmimik\App\Exceptions\Handler::class
 );
 
 /*

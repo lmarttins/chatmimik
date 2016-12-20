@@ -151,11 +151,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Chatmimik\Providers\AppServiceProvider::class,
-        Chatmimik\Providers\AuthServiceProvider::class,
-        Chatmimik\Providers\EventServiceProvider::class,
-        Chatmimik\Providers\RouteServiceProvider::class,
-        Chatmimik\Providers\PusherServiceProvider::class,
+        Chatmimik\App\Providers\AppServiceProvider::class,
+        Chatmimik\App\Providers\AuthServiceProvider::class,
+        Chatmimik\App\Providers\EventServiceProvider::class,
+        Chatmimik\App\Providers\RouteServiceProvider::class,
+        Chatmimik\App\Providers\PusherServiceProvider::class,
 
     ],
 
