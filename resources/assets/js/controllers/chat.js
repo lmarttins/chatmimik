@@ -31,8 +31,6 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             message: this.message
         };
 
-        console.log(this.messages);
-
         // Update message list for author
         this.messages.push(message);
 
@@ -83,6 +81,17 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             this.memberCount = channelManager.getMembersCount();
             this.removeUser(user);
         });
+
+        channel.bind('client-user-typing', (response) => {
+            var message = {
+                user: {
+                    username: response.username,
+                    show: true
+                }
+            };
+
+            this.messages.push(message);
+        });
     };
 
     /**
@@ -124,6 +133,12 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     };
 
     this.keydownMessage = () => {
-        $http.post('messages', message);
+        let channel = channelManager.subscribe('presence-chat');
+
+        channel.bind('pusher:subscription_succeeded', function(user) {
+            var triggered = channel.trigger('client-user-typing', {username: user.me.info.username});
+        });
+
+        return false;
     };
 }

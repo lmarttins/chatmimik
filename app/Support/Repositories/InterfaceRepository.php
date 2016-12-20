@@ -42,7 +42,7 @@ interface InterfaceRepository
      * @param array $columns
      * @return mixed
      */
-    public function find($id, $columns = array('*'));
+    public function find($id, array $columns = ['*']);
 
     /**
      * @param $field

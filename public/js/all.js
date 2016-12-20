@@ -39349,8 +39349,6 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             message: _this.message
         };
 
-        console.log(_this.messages);
-
         // Update message list for author
         _this.messages.push(message);
 
@@ -39401,6 +39399,17 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
             _this.memberCount = channelManager.getMembersCount();
             _this.removeUser(user);
         });
+
+        channel.bind('client-user-typing', function (response) {
+            var message = {
+                user: {
+                    username: response.username,
+                    show: true
+                }
+            };
+
+            _this.messages.push(message);
+        });
     };
 
     /**
@@ -39442,7 +39451,13 @@ function chatController($scope, $http, $sessionStorage, $filter, channelManager,
     };
 
     this.keydownMessage = function () {
-        $log.log('keydown press ...');
+        var channel = channelManager.subscribe('presence-chat');
+
+        channel.bind('pusher:subscription_succeeded', function (user) {
+            var triggered = channel.trigger('client-user-typing', { username: user.me.info.username });
+        });
+
+        return false;
     };
 }
 /* global angular, Pusher, chattyConfig */

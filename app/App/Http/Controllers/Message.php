@@ -1,6 +1,6 @@
 <?php
 
-namespace Chatmimik\Http\Controllers;
+namespace Chatmimik\App\Http\Controllers;
 
 use Chatmimik\Domains\Users\Repositories\UserRepositoryInterface;
 use Chatmimik\App\Http\Requests;
@@ -44,10 +44,5 @@ class Message extends Controller
         $event->fire(new MessagePublished($message));
 
         return response($message, 201);
-    }
-
-    public function userByTyping(Request $request, Dispatcher $event)
-    {
-        $this->userRepository->find($request->get('user_id'));
     }
 }

@@ -24,4 +24,4 @@ Route::post('pusher/auth', function (Illuminate\Http\Request $request, Pusher $p
     );
 });
 
-Route::resource('messages', 'Message', ['only' => ['index', 'store', 'userByTyping']]);
+Route::resource('messages', 'Message', ['only' => ['index', 'store']]);

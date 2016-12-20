@@ -111,7 +111,7 @@ abstract class AbstractRepository implements InterfaceRepository
      *
      * @return mixed
      */
-    public function find($id, $columns = array('*'))
+    public function find($id, array $columns = ['*'])
     {
         return $this->model->find($id, $columns);
     }

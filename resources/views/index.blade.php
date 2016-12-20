@@ -28,16 +28,26 @@
 
                 <div class="ui comments" scroll-glue ng-cloak>
                     <div class="comment" ng-repeat="message in chat.messages">
-                        <div class="avatar">
-                            <identicon username="message.username" size="35">
-                        </div>
-                        <div class="content">
-                            <span class="author">@{{ message.username }}</span>
-                            <div class="metadata">
-                                <div class="date" am-time-ago="message.created_at | amUtc | amLocal"></div>
+                        <div ng-show="message.user.show">
+                            <div class="avatar">
+                                <identicon username="message.user.username" size="35">
                             </div>
-                            <div class="text">
-                                <p>@{{ message.message }}</p>
+                            <div class="content">
+                                <span class="author">@{{ message.user.username }}</span> está digitando...
+                            </div>
+                        </div>
+                        <div ng-hide="message.user.show">
+                            <div class="avatar">
+                                <identicon username="message.username" size="35">
+                            </div>
+                            <div class="content">
+                                <span class="author">@{{ message.username }}</span>
+                                <div class="metadata">
+                                    <div class="date" am-time-ago="message.created_at | amUtc | amLocal"></div>
+                                </div>
+                                <div class="text">
+                                    <p>@{{ message.message }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
